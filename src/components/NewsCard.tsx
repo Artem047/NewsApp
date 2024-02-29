@@ -4,16 +4,14 @@ interface IProps {
   urlToImage: string | undefined;
 }
 
-const NewsCard = ({
-  description,
-  title,
-  urlToImage,
-}: IProps) => {
-  return <div>
-    <h2>{title}</h2>
-    <p>{description}</p>
-    <img src={urlToImage} alt={title} />
-  </div>;
+const NewsCard = ({ description, title, urlToImage }: IProps) => {
+  return (
+    <>
+      <h2>{title}</h2>
+      <img src={urlToImage} alt={title} />
+      <p>{description}</p>
+    </>
+  );
 };
 
 export default NewsCard;

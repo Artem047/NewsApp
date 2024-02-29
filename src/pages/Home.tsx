@@ -15,7 +15,7 @@ const Home = () => {
                 )
             })}
         </div>
-        {/* <MainPost /> */}
+        <MainPost />
     </div>
   )
 }

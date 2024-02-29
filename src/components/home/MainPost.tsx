@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { API } from "../../api/API";
 import axios from "axios";
+import NewsCard from "../NewsCard";
 
 const MainPost = () => {
   const [mainPost, setMainPost] = useState([]);
@@ -22,17 +23,14 @@ const MainPost = () => {
 
   return (
     <div>
-      <div>
-        {mainPost.map((post, id) => {
-          return (
-            <div key={id}>
-              <h1>{post.title}</h1>
-              <img src={post.urlToImage} alt="" />
-              <p>{post.description}</p>
-            </div>
-          );
-        })}
-      </div>
+      {mainPost.map((post, id) => (
+          <NewsCard
+            key={id}
+            title={post.title}
+            description={post.description}
+            urlToImage={post.urlToImage}
+          />
+        ))}
     </div>
   );
 };

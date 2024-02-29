@@ -5,7 +5,7 @@ const ErrorPage = () => {
   return (
     <div className="relative flex gap-20 items-center justify-center flex-col py-5 overflow-hidden h-screen">
       <img src="/bg-error.png" alt="" className="absolute -z-10 left-[15%]" />
-      <h1 className="uppercase font-black text-6xl">
+      <h1 className="uppercase font-black text-3xl text-center">
         <i>{error.statusText || error.message}</i>
       </h1>
       <img src="/error.svg" alt="" />

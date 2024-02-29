@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root";
-import Category from "../components/Category";
-import Contact from "../components/Contact";
 import ErrorPage from "../pages/ErrorPage";
+import Home from "../pages/Home";
+import Business from "../pages/Business";
+import Entertainment from "../pages/Entertainment";
+import Technology from "../pages/Technology";
+import Sports from "../pages/Sports";
+import Science from "../pages/Science";
 
 export const router = createBrowserRouter([
     {
@@ -11,12 +15,28 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: '/category',
-                element: <Category />,
+                path: '/',
+                element: <Home  />,
             },
             {
-                path: '/contact',
-                element: <Contact />,
+                path: '/business',
+                element: <Business />
+            },
+            {
+                path: '/entertainment',
+                element: <Entertainment />,
+            },
+            {
+                path: '/technology',
+                element: <Technology />
+            },
+            {
+                path: '/sports',
+                element: <Sports />,
+            },
+            {
+                path: '/science',
+                element: <Science />
             }
         ]
     }

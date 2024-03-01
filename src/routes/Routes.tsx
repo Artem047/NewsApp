@@ -7,6 +7,7 @@ import Entertainment from "../pages/category/Entertainment";
 import Technology from "../pages/category/Technology";
 import Sports from "../pages/category/Sports";
 import Science from "../pages/category/Science";
+import RouteNewsCard from "../components/RouteNewsCard";
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home  />,
+            },
+            {
+                path: '/:news',
+                element: <RouteNewsCard />
             },
             {
                 path: '/business',

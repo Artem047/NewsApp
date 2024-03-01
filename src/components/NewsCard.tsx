@@ -6,9 +6,10 @@ export interface IProps {
   urlToImage: string | undefined;
   author: string;
   publishedAt: string;
+  source: string;
 }
 
-const NewsCard = ({ description, title, urlToImage, author, publishedAt }: IProps) => {
+const NewsCard = ({ description, title, urlToImage, author, publishedAt, source }: IProps) => {
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
@@ -19,7 +20,7 @@ const NewsCard = ({ description, title, urlToImage, author, publishedAt }: IProp
   };
   const shortDate = new Date(publishedAt).toLocaleDateString("en-US", options)
   return (
-    <Link to='/sports' className="p-3 bg-[#F5F5F5] max-w-[340px] h-[370px] flex flex-col gap-3 justify-center items-center mt-10 rounded-xl">
+    <Link to={`/${source.name}`} className="p-3 bg-[#F5F5F5] max-w-[340px] h-[370px] flex flex-col gap-3 justify-center items-center mt-10 rounded-xl">
       <img src={urlToImage} alt={title} className="rounded-xl max-w-[340px] max-h-[180px] w-full h-full" />
       <h1 className="font-bold text-base">{truncateText(`${title}`, 35)}</h1>
       <p className="text-sm h-10">{truncateText(`${description}`, 80)}</p>

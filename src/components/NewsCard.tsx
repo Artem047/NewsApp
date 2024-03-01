@@ -1,4 +1,4 @@
-interface IProps {
+export interface IProps {
   description: string | null;
   title: string;
   urlToImage: string | undefined;

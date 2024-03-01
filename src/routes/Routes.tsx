@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
-import Business from "../pages/Business";
-import Entertainment from "../pages/Entertainment";
-import Technology from "../pages/Technology";
-import Sports from "../pages/Sports";
-import Science from "../pages/Science";
+import Business from "../pages/category/Business";
+import Entertainment from "../pages/category/Entertainment";
+import Technology from "../pages/category/Technology";
+import Sports from "../pages/category/Sports";
+import Science from "../pages/category/Science";
 
 export const router = createBrowserRouter([
     {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { API } from "../../api/API";
 import axios from "axios";
 import NewsCard, { IProps } from "../NewsCard";
@@ -8,10 +8,10 @@ const MainPost = () => {
 
   const getMainPost = async () => {
     const res = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API}`
+      `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${API}`
     );
     const filteredPost = res.data.articles.filter(
-      (post: IProps) => post.urlToImage != null
+      (post: IProps) => post.urlToImage != null && post.author != null
     );
     setMainPost(filteredPost);
     console.log(filteredPost);
@@ -22,7 +22,7 @@ const MainPost = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-10 justify-around">
       {mainPost.map((post, id) => (
           <NewsCard
             key={id}

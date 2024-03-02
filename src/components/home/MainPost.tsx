@@ -10,10 +10,11 @@ const MainPost = () => {
   const [modalNews, setModalNews] = useState<boolean>(false);
 
   const getMainPost = async () => {
-    const res = await axios.get(
+    const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${API}`
     );
-    const filteredPost = res.data.articles.filter(
+    const data = await res.json();
+    const filteredPost = data.articles.filter(
       (post: IProps) =>
         post.urlToImage != null && post.author != null && post.author != ""
     );

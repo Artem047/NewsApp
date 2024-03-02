@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { API } from "../../api/API";
-import axios from "axios";
 import NewsCard, { IProps } from "../NewsCard";
 import ModalNewsCard from "../ModalNewsCard";
 

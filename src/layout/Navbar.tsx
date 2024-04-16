@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import InputSearch from "./InputSearch";
+import InputSearch from "../components/InputSearch";
 
 const Navbar = () => {
   return (
@@ -9,11 +9,11 @@ const Navbar = () => {
       </span>
       <div className="flex gap-10">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/business">Business</NavLink>
-        <NavLink to="/entertainment">Entertainment</NavLink>
-        <NavLink to="/sports">Sports</NavLink>
-        <NavLink to="/technology">Technology</NavLink>
-        <NavLink to="/science">Science</NavLink>
+        <NavLink to="/news/business">Business</NavLink>
+        <NavLink to="/news/entertainment">Entertainment</NavLink>
+        <NavLink to="/news/sports">Sports</NavLink>
+        <NavLink to="/news/technology">Technology</NavLink>
+        <NavLink to="/news/science">Science</NavLink>
       </div>
       <InputSearch />
     </nav>

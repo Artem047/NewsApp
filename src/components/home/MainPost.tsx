@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { API } from "../../api/API";
-import NewsCard, { IProps } from "../NewsCard";
+import NewsCard from "../NewsCard";
 import ModalNewsCard from "../ModalNewsCard";
+import { INewsCard } from "../../interface/news_card.interface";
 
 const MainPost = () => {
-  const [mainPost, setMainPost] = useState<IProps[]>([]);
-  const [selectedNews, setSelectedNews] = useState<IProps | null>(null);
+  const [mainPost, setMainPost] = useState<INewsCard[]>([]);
+  const [selectedNews, setSelectedNews] = useState<INewsCard | null>(null);
   const [modalNews, setModalNews] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   const getMainPost = async () => {
+    setIsLoading(true)
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${API}`
+      `https://newsapi.org/v2/top-headlines?country=us&pageSize=9&apiKey=${API}`
     );
     const data = await res.json();
-    const filteredPost = data.articles.filter(
-      (post: IProps) =>
-        post.urlToImage != null && post.author != null && post.author != ""
-    );
-    setMainPost(filteredPost);
-    console.log(filteredPost);
+    setIsLoading(false)
+    setMainPost(data.articles);
+    console.log(data.articles);
   };
 
-  const showModal = (news: IProps) => {
+  const showModal = (news: INewsCard) => {
     setSelectedNews(news);
     setModalNews(true);
   };
@@ -37,6 +37,7 @@ const MainPost = () => {
 
   return (
     <div className="flex flex-wrap gap-10 justify-around">
+      {isLoading && <p>Loading...</p>}
       {mainPost.map((post, id) => (
         <div key={id} onClick={() => showModal(post)}>
           <NewsCard {...post} />

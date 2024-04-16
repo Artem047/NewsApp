@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IProps } from "./NewsCard";
+import { INewsCard } from "../interface/news_card.interface";
 
 const ModalNewsCard = ({
   description,
@@ -8,7 +8,8 @@ const ModalNewsCard = ({
   author,
   publishedAt,
   url
-}: IProps) => {
+}: INewsCard) => {
+
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",

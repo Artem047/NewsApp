@@ -1,11 +1,5 @@
-export interface IProps {
-  description: string | null;
-  title: string;
-  urlToImage: string | undefined;
-  author: string;
-  publishedAt: string;
-  url?: string | undefined;
-}
+import { INewsCard } from "../interface/news_card.interface";
+
 
 const NewsCard = ({
   description,
@@ -13,7 +7,7 @@ const NewsCard = ({
   urlToImage,
   author,
   publishedAt,
-}: IProps) => {
+}: INewsCard) => {
 
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
@@ -26,8 +20,6 @@ const NewsCard = ({
   };
 
   const shortDate = new Date(publishedAt).toLocaleDateString("en-US", options);
-
-  
 
   return (
       <div

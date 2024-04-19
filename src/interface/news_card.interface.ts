@@ -5,4 +5,7 @@ export interface INewsCard {
     author: string;
     publishedAt: string;
     url?: string | undefined;
+    source: {
+      id: string;
+    }
   }

@@ -1,24 +1,28 @@
-import { useEffect, useState } from "react";
+import { UIEvent, useEffect, useState } from "react";
 import { API } from "../../api/API";
 import NewsCard from "../NewsCard";
-import ModalNewsCard from "../ModalNewsCard";
 import { INewsCard } from "../../interface/news_card.interface";
+import ModalNewsCard from "../ModalNewsCard";
+import axios from "axios";
 
-const MainPost = () => {
+const PopularPost = () => {
   const [mainPost, setMainPost] = useState<INewsCard[]>([]);
   const [selectedNews, setSelectedNews] = useState<INewsCard | null>(null);
   const [modalNews, setModalNews] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentNews, setCurrentNews] = useState(1);
+  const [fetching, setFetching] = useState(true);
 
-  const getMainPost = async () => {
-    setIsLoading(true)
-    const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&pageSize=9&apiKey=${API}`
-    );
-    const data = await res.json();
-    setIsLoading(false)
-    setMainPost(data.articles);
-    console.log(data.articles);
+  const scrollHandler = (e: UIEvent) => {
+    if (e.target instanceof Document && e.target.documentElement) {
+      if (
+        e.target.documentElement.scrollHeight -
+          (e.target.documentElement.scrollTop + window.innerHeight) <
+        100 
+      ) {
+        setFetching(true);
+      }
+    }
   };
 
   const showModal = (news: INewsCard) => {
@@ -32,8 +36,29 @@ const MainPost = () => {
   };
 
   useEffect(() => {
-    getMainPost();
+    document.addEventListener("scroll", scrollHandler);
+
+    return function () {
+      document.removeEventListener("scroll", scrollHandler);
+    };
   }, []);
+
+  useEffect(() => {
+    if (fetching) {
+      setIsLoading(true);
+      axios
+        .get(
+          `https://newsapi.org/v2/top-headlines?country=us&pageSize=9&page=${currentNews}&apiKey=${API}`
+        )
+        .then((res) => {
+          setIsLoading(false);
+          setMainPost([...mainPost, ...res.data.articles]);
+          setCurrentNews((prev) => prev + 1);
+        })
+        .finally(() => setFetching(false));
+    }
+  }, [fetching]);
+
 
   return (
     <div className="flex flex-wrap gap-10 justify-around">
@@ -57,4 +82,4 @@ const MainPost = () => {
   );
 };
 
-export default MainPost;
+export default PopularPost;

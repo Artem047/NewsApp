@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 
-const NewsPage = () => {
+const News = () => {
   return (
     <div>
         <Outlet />
@@ -8,4 +8,4 @@ const NewsPage = () => {
   )
 }
 
-export default NewsPage
+export default News

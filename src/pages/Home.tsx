@@ -1,4 +1,4 @@
-import MainPost from "../components/home/MainPost";
+import PopularPost from "../components/home/PopularPost";
 import NewsCategory from "../components/NewsCategory";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
         <NewsCategory />
       </>
       <>
-        <MainPost />
+        <PopularPost />
       </>
     </div>
   );

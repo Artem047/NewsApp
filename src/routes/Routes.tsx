@@ -7,7 +7,7 @@ import Entertainment from "../pages/category/Entertainment";
 import Technology from "../pages/category/Technology";
 import Sports from "../pages/category/Sports";
 import Science from "../pages/category/Science";
-import NewsPage from "../pages/NewsPage";
+import News from "../pages/News";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/news",
-        element: <NewsPage />,
+        element: <News />,
         children: [
           {
             path: "business",

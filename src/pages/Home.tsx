@@ -1,11 +1,11 @@
 import PopularPost from "../components/home/PopularPost";
-import NewsCategory from "../components/NewsCategory";
+import NewsCategoryTag from "../components/NewsCategoryTag";
 
 const Home = () => {
   return (
     <div>
       <>
-        <NewsCategory />
+        <NewsCategoryTag />
       </>
       <>
         <PopularPost />

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { category_tag } from "../data/data";
 
-const NewsCategory = () => {
+const NewsCategoryTag = () => {
   return (
     <div className="flex justify-around">
       {category_tag.map((tag, id) => {
@@ -24,4 +24,4 @@ const NewsCategory = () => {
   );
 };
 
-export default NewsCategory;
+export default NewsCategoryTag;

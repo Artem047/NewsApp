@@ -1,4 +1,4 @@
-import { UIEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { API } from "../../api/API";
 import NewsCard from "../NewsCard";
 import { INewsCard } from "../../interface/news_card.interface";
@@ -13,12 +13,12 @@ const PopularPost = () => {
   const [currentNews, setCurrentNews] = useState(1);
   const [fetching, setFetching] = useState(true);
 
-  const scrollHandler = (e: UIEvent) => {
-    if (e.target instanceof Document && e.target.documentElement) {
+  const scrollHandler = (): void => {
+    if (document.documentElement) {
       if (
-        e.target.documentElement.scrollHeight -
-          (e.target.documentElement.scrollTop + window.innerHeight) <
-        100 
+        document.documentElement.scrollHeight -
+          (document.documentElement.scrollTop + window.innerHeight) <
+        100
       ) {
         setFetching(true);
       }
@@ -58,7 +58,6 @@ const PopularPost = () => {
         .finally(() => setFetching(false));
     }
   }, [fetching]);
-
 
   return (
     <div className="flex flex-wrap gap-10 justify-around">

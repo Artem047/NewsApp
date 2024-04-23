@@ -3,7 +3,7 @@ import InputSearch from "../components/InputSearch";
 
 const Navbar = () => {
   return (
-    <nav className="py-10 flex justify-around items-center">
+    <nav className=" flex items-center justify-between py-5">
       <span className="flex font-bold text-[#B7DFFF] text-2xl">
         ARTEMS.news
       </span>

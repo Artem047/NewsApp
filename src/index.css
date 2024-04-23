@@ -8,6 +8,12 @@
   margin: 0;
 }
 
+body{
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+}
+
 a.active{
   color: #B7DFFF;
   border-bottom: 2px solid #B7DFFF;

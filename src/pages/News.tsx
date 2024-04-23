@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
 
 const News = () => {
   return (
     <div>
-        <Outlet />
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default News
+export default News;

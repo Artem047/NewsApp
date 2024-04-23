@@ -4,6 +4,7 @@ import NewsCard from "../NewsCard";
 import { INewsCard } from "../../interface/news_card.interface";
 import ModalNewsCard from "../ModalNewsCard";
 import axios from "axios";
+import Loading from "../loading/Loading";
 
 const PopularPost = () => {
   const [mainPost, setMainPost] = useState<INewsCard[]>([]);
@@ -61,7 +62,7 @@ const PopularPost = () => {
 
   return (
     <div className="flex flex-wrap gap-10 justify-around">
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading />}
       {mainPost.map((post, id) => (
         <div key={id} onClick={() => showModal(post)}>
           <NewsCard {...post} />

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { INewsCard } from "../interface/news_card.interface";
-import axios from "axios";
 import { API } from "../api/API";
 import NewsCard from "../components/NewsCard";
 import Loading from "../components/loading/Loading";

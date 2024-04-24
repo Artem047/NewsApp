@@ -23,7 +23,7 @@ const ModalNewsCard = ({
       <img
         src={urlToImage ? urlToImage : '/news.svg'}
         alt={title}
-        className="rounded-xl max-w-[340px] max-h-[180px] w-full h-full"
+        className="rounded-xl max-w-[340px] max-h-[250px] w-full h-full"
       />
       <h1 className="font-bold text-base">{title}</h1>
       <p className="text-sm">{description}</p>

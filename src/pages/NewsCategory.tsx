@@ -24,24 +24,36 @@ const NewsCategory = () => {
     setModalNews(false);
   };
 
-  const getNewsCategory = async (page: string | undefined) => {
+  const getNewCategory = async (page: string | undefined) => {
     setIsLoading(true);
-    try {
-      await axios
-        .get(
-          `https://newsapi.org/v2/top-headlines?country=us&category=${page}&pageSize=25&apiKey=${API}`
-        )
-        .then((response) => {
-          setPost(response.data.articles);
-          setIsLoading(false);
-        });
-    } catch (error) {
+    try{
+      const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${page}&pageSize=25&apiKey=${API}`);
+      const data = await res.json();
+      setPost(data.articles);
+      setIsLoading(false);
+    }catch(error){
       console.error("Error fetching news:", error);
     }
-  };
+  }
+
+  // const getNewsCategory = async (page: string | undefined) => {
+  //   setIsLoading(true);
+  //   try {
+  //     await axios
+  //       .get(
+  //         `https://newsapi.org/v2/top-headlines?country=us&category=${page}&pageSize=25&apiKey=${API}`
+  //       )
+  //       .then((response) => {
+  //         setPost(response.data.articles);
+  //         setIsLoading(false);
+  //       });
+  //   } catch (error) {
+  //     console.error("Error fetching news:", error);
+  //   }
+  // };
 
   useEffect(() => {
-    getNewsCategory(category);
+    getNewCategory(category);
   }, [category]);
 
   return (

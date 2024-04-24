@@ -58,7 +58,7 @@ const PopularPost = () => {
         })
         .finally(() => setFetching(false));
     }
-  }, [fetching]);
+  }, [fetching, currentNews, mainPost]);
 
   return (
     <div className="flex flex-wrap gap-10 justify-around">
